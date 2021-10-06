@@ -1,5 +1,12 @@
 from aws_cdk import core as cdk
 
+
+from aws_cdk import (
+    aws_s3 as _s3,
+    core
+
+)
+
 # For consistency with other languages, `cdk` is the preferred import name for
 # the CDK's core module.  The following line also imports it as `core` for use
 # with examples from the CDK Developer's Guide, which are in the process of
@@ -13,3 +20,4 @@ class UniquebucketnameStack(cdk.Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
+        _s3.Bucket(self,"myBucketId", bucket_name ="cdkproject" ,versioned=True , encryption=_s3.BucketEncryption.KMS_MANAGED)
